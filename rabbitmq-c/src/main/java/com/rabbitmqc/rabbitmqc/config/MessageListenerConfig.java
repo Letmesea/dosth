@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @description: 可以通过这样配置具体的接收消息处理方法
  * @date 2020/5/2814:06
  */
-@Configuration
+//@Configuration
 public class MessageListenerConfig {
     @Autowired
     private CachingConnectionFactory connectionFactory;
