@@ -28,6 +28,10 @@ public class DirectRabbitConfig {
         //一般设置一下队列的持久化就好,其余两个就是默认false
         return new Queue("TestDirectQueue",true);
     }
+    @Bean
+    public Queue TestDirectQueue2(){
+        return new Queue("TestDirectQueue2",true);
+    }
 
     //Direct交换机 起名：TestDirectExchange
     @Bean
@@ -40,6 +44,10 @@ public class DirectRabbitConfig {
     @Bean
     Binding bindingDirect() {
         return BindingBuilder.bind(TestDirectQueue()).to(TestDirectExchange()).with("TestDirectRouting");
+    }
+    @Bean
+    Binding bindingDirect2() {
+        return BindingBuilder.bind(TestDirectQueue2()).to(TestDirectExchange()).with("TestDirectRouting2");
     }
 
 

@@ -36,7 +36,12 @@ public class SendMsgController {
             map.put("createTime",createTime);
             //将消息携带绑定键值：TestDirectRouting 发送到交换机TestDirectExchange
             CorrelationData correlationData = new CorrelationData(""+i);
-            rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map,correlationData);
+            if(i%2!=0){
+                rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map,correlationData);
+            }else{
+                rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting2", map,correlationData);
+            }
+
         }
         return "ok";
     }

@@ -19,17 +19,24 @@ import java.util.Map;
  */
 @Component
 
-@RabbitListener(queues = "TestDirectQueue")
+
 public class DirectReceiver {
-    @RabbitHandler
+    @RabbitListener(queues = "TestDirectQueue")
     public void process(Map testMsg, Message message, Channel channel) throws IOException, InterruptedException {
         System.out.println("消费TestDirectQueue队列数据："+testMsg.toString()+" " +
                 "deliveryTag:"+message.getMessageProperties().getDeliveryTag());
-        dosth();
+//        dosth();
         channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);
     }
     @Async
     public void dosth() throws InterruptedException {
         Thread.sleep(300);
+    }
+    @RabbitListener(queues = "TestDirectQueue2")
+    public void process2(Map testMsg, Message message, Channel channel) throws IOException, InterruptedException {
+        System.out.println("消费TestDirectQueue2队列数据："+testMsg.toString()+" " +
+                "deliveryTag:"+message.getMessageProperties().getDeliveryTag());
+//        dosth();
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);
     }
 }
