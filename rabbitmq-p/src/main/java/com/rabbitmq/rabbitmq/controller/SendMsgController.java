@@ -1,5 +1,7 @@
 package com.rabbitmq.rabbitmq.controller;
 
+import com.entity.FlightBody;
+import com.entity.FlightMessage;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @author Letmesea
@@ -26,21 +26,26 @@ public class SendMsgController {
 
     @GetMapping("/sendDirectMessage")
     public String sendDirectMessage() {
-        for (int i=1;i<=10000;i++){
-//            String messageId = String.valueOf(UUID.randomUUID());
-            String messageData = "test message, hello!";
-            String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            Map<String,Object> map=new HashMap<>();
-            map.put("messageId",""+i);
-            map.put("messageData",messageData);
-            map.put("createTime",createTime);
-            //将消息携带绑定键值：TestDirectRouting 发送到交换机TestDirectExchange
-            CorrelationData correlationData = new CorrelationData(""+i);
-            if(i%2!=0){
-                rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map,correlationData);
-            }else{
-                rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting2", map,correlationData);
+
+
+        for (int j=0;j<10000;j++){
+            List<FlightBody> flightBodies = new ArrayList<>();
+            for (int i=0;i<100;i++){
+                FlightBody flightBody = new FlightBody();
+                flightBody.setFfpNbr(i+" ffp");
+                flightBody.setIdNbr(i+" idn");
+                FlightMessage flightMessage = new FlightMessage();
+                flightMessage.setAirPhone(i+" 95530");
+                flightMessage.setNewFlightNo("MUxxxx");
+                List<FlightMessage> flightMessages = new ArrayList<>();
+                flightMessages.add(flightMessage);
+                flightBody.setMessages(flightMessages);
+                flightBodies.add(flightBody);
             }
+
+            CorrelationData correlationData = new CorrelationData(""+j);
+            rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", flightBodies,correlationData);
+
 
         }
         return "ok";
