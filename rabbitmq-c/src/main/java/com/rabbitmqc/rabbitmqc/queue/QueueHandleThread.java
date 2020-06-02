@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @author Letmesea
@@ -16,8 +17,8 @@ import java.util.concurrent.ArrayBlockingQueue;
 @Slf4j
 public class QueueHandleThread implements Runnable{
     private QueueMsgHandlerService queueMessageHandler;
-    private ArrayBlockingQueue<List<FlightBody>> blockingQueue;
-    QueueHandleThread(ArrayBlockingQueue blockingQueue, QueueMsgHandlerService queueMessageHandler) {
+    private LinkedBlockingQueue<List<FlightBody>> blockingQueue;
+    QueueHandleThread(LinkedBlockingQueue blockingQueue, QueueMsgHandlerService queueMessageHandler) {
         super();
         this.blockingQueue = blockingQueue;
         this.queueMessageHandler=queueMessageHandler;

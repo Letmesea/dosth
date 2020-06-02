@@ -28,14 +28,14 @@ public class SendMsgController {
     public String sendDirectMessage() {
 
 
-        for (int j=0;j<10000;j++){
+        for (int j=0;j<1000;j++){
             List<FlightBody> flightBodies = new ArrayList<>();
             for (int i=0;i<100;i++){
                 FlightBody flightBody = new FlightBody();
-                flightBody.setFfpNbr(i+" ffp");
-                flightBody.setIdNbr(i+" idn");
+                flightBody.setFfpNbr(j+" "+i+" ffp");
+                flightBody.setIdNbr(j+" "+i+" idn");
                 FlightMessage flightMessage = new FlightMessage();
-                flightMessage.setAirPhone(i+" 95530");
+                flightMessage.setAirPhone(j+" "+i+" 95530");
                 flightMessage.setNewFlightNo("MUxxxx");
                 List<FlightMessage> flightMessages = new ArrayList<>();
                 flightMessages.add(flightMessage);

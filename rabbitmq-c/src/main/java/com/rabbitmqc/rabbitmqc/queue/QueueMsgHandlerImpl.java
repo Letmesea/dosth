@@ -68,7 +68,8 @@ public class QueueMsgHandlerImpl implements QueueMsgHandlerService{
      * @return {@link MessageResponse}
      */
     public MessageResponse push() throws InterruptedException {
-        Thread.sleep(300);
+        System.out.println("---推送消息---");
+        Thread.sleep(10);
         return null;
     }
 
@@ -77,6 +78,7 @@ public class QueueMsgHandlerImpl implements QueueMsgHandlerService{
      * @param results
      */
     public void updateMessageStatus(List<MessageResponse> results) throws InterruptedException {
-        Thread.sleep(50);
+        System.out.println("---更新状态---");
+        Thread.sleep(10);
     }
 }

@@ -2,6 +2,7 @@ package com.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  * @date: Created in 2020/5/9 15:42
  */
 @Data
-public class FlightBody {
+public class FlightBody implements Serializable {
 
     private String ffpNbr;
 

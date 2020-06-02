@@ -2,13 +2,15 @@ package com.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @description: 不正常航班消息实体
  * @author: YUANBING1
  * @date: Created in 2020/5/9 14:53
  */
 @Data
-public class FlightMessage {
+public class FlightMessage implements Serializable {
 
     private String airPhone;
     private String newArrDate;

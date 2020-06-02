@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @author Letmesea
@@ -16,7 +17,7 @@ import java.util.concurrent.Executors;
 @Slf4j
 public class CacheQueueThreadExecutor {
     //队列数组
-    private ArrayBlockingQueue[] queueArray;
+    private LinkedBlockingQueue[] queueArray;
     //线程数组
     private QueueHandleThread[] threadArray;
     private ExecutorService executorService;
@@ -43,11 +44,12 @@ public class CacheQueueThreadExecutor {
         init();
     }
     private void init() {
-        queueArray =  new ArrayBlockingQueue[threadNum];
+        queueArray =  new LinkedBlockingQueue[threadNum];
         threadArray = new QueueHandleThread[threadNum];
         executorService = Executors.newFixedThreadPool(threadNum);
         for (int i = 0; i < threadNum; i++) { // 初始化
-            queueArray[i] =  new ArrayBlockingQueue(queueCapacity);
+//            queueArray[i] =  new LinkedBlockingQueue(queueCapacity);
+            queueArray[i] =  new LinkedBlockingQueue();
             threadArray[i] = new QueueHandleThread(queueArray[i], queueMessageHandler);
             executorService.submit(threadArray[i]);
         }
