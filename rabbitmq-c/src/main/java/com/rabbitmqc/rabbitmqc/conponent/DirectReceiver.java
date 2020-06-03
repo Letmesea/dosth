@@ -26,8 +26,8 @@ import java.util.Map;
 public class DirectReceiver {
     @RabbitListener(queues = "TestDirectQueue")
     public void process(List<FlightBody> testMsg, Message message, Channel channel) throws IOException, InterruptedException {
-        System.out.println("消费TestDirectQueue队列数据："+testMsg.toString()+" " +
-                "deliveryTag:"+message.getMessageProperties().getDeliveryTag());
+//        System.out.println("消费TestDirectQueue队列数据："+testMsg.toString()+" " +
+//                "deliveryTag:"+message.getMessageProperties().getDeliveryTag());
         MessageConsumerExecutor.getCacheQueueThreadExecutor().putObject2Queue(testMsg);
         channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);
     }

@@ -2,10 +2,8 @@ package com.rabbitmqc.rabbitmqc.queue;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Letmesea
@@ -25,16 +23,17 @@ public class CacheQueueThreadExecutor {
     private Integer queueCapacity;
     // 核心线程数
     private Integer threadNum;
+
     //消息入队策略
     private BalancedPutQueueConcreteStrategy putObjStrategy;
     private QueueMsgHandlerService queueMessageHandler;
 
-     public CacheQueueThreadExecutor(Integer threadNum, Integer queueCapacity, QueueMsgHandlerService queueMessageHandler) {
-        this(threadNum,queueCapacity,queueMessageHandler,new BalancedPutQueueConcreteStrategy());
+    public CacheQueueThreadExecutor(Integer threadNum, Integer queueCapacity, QueueMsgHandlerService queueMessageHandler) {
+        this(threadNum, queueCapacity, queueMessageHandler, new BalancedPutQueueConcreteStrategy());
     }
 
-     private CacheQueueThreadExecutor(Integer threadNum, Integer queueCapacity, QueueMsgHandlerService queueMessageHandler,
-                                      BalancedPutQueueConcreteStrategy putQueueStrategy) {
+    private CacheQueueThreadExecutor(Integer threadNum, Integer queueCapacity, QueueMsgHandlerService queueMessageHandler,
+                                     BalancedPutQueueConcreteStrategy putQueueStrategy) {
         super();
         this.threadNum = threadNum;
         this.queueCapacity = queueCapacity;
@@ -43,23 +42,37 @@ public class CacheQueueThreadExecutor {
 
         init();
     }
+
     private void init() {
-        queueArray =  new LinkedBlockingQueue[threadNum];
+        queueArray = new LinkedBlockingQueue[threadNum];
         threadArray = new QueueHandleThread[threadNum];
-        executorService = Executors.newFixedThreadPool(threadNum);
+        executorService = new ThreadPoolExecutor(
+                threadNum, threadNum, 0L,
+                TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(),
+                new ThreadFactory() {
+                    @Override
+                    public Thread newThread(Runnable r) {
+                        return new Thread(r, "t_pl_pool_" + r.hashCode());
+                    }
+                }, new ThreadPoolExecutor.AbortPolicy());
         for (int i = 0; i < threadNum; i++) { // 初始化
-//            queueArray[i] =  new LinkedBlockingQueue(queueCapacity);
-            queueArray[i] =  new LinkedBlockingQueue();
-            threadArray[i] = new QueueHandleThread(queueArray[i], queueMessageHandler);
+            queueArray[i] = new LinkedBlockingQueue(queueCapacity);
+//            queueArray[i] =  new LinkedBlockingQueue();
+            threadArray[i] = new QueueHandleThread(queueArray[i], queueMessageHandler,i);
             executorService.submit(threadArray[i]);
         }
 
     }
-    public void putObject2Queue(Object message ){
+
+    public void putObject2Queue(Object message) {
         try {
-            putObjStrategy.putObj(queueArray, message);;
+            putObjStrategy.putObj(queueArray, message);
+            ;
         } catch (Exception e) {
-            log.error("put message error!",e);
+            log.error("put message error!", e);
         }
+    }
+    public ExecutorService getExecutorService(){
+        return this.executorService;
     }
 }

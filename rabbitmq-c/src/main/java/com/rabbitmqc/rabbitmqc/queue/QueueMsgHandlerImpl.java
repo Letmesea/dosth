@@ -3,11 +3,13 @@ package com.rabbitmqc.rabbitmqc.queue;
 
 import com.entity.FlightBody;
 import com.entity.MessageResponse;
+import com.utils.EncryptUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 /**
@@ -20,7 +22,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 public class QueueMsgHandlerImpl implements QueueMsgHandlerService{
-
+    private AtomicInteger receiveN = new  AtomicInteger(0);
     //@Autowired
     //注入推送服务
 
@@ -40,7 +42,7 @@ public class QueueMsgHandlerImpl implements QueueMsgHandlerService{
                     .map(flight -> CompletableFuture.supplyAsync(() -> {
                         try {
                             return push();
-                        } catch (InterruptedException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                         return null;
@@ -67,9 +69,11 @@ public class QueueMsgHandlerImpl implements QueueMsgHandlerService{
      * 将消息推送到微信服务通知
      * @return {@link MessageResponse}
      */
-    public MessageResponse push() throws InterruptedException {
-        System.out.println("---推送消息---");
-        Thread.sleep(10);
+    public MessageResponse push() throws Exception {
+//        System.out.println("---推送消息---");
+        for(int i=0;i<10000000;i++){
+            i++;
+        }
         return null;
     }
 
@@ -78,7 +82,8 @@ public class QueueMsgHandlerImpl implements QueueMsgHandlerService{
      * @param results
      */
     public void updateMessageStatus(List<MessageResponse> results) throws InterruptedException {
-        System.out.println("---更新状态---");
+        receiveN.getAndIncrement();
+        System.out.println("---更新状态---已处理的消息数量 "+receiveN);
         Thread.sleep(10);
     }
 }
