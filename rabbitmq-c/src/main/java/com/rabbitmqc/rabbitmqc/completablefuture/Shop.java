@@ -1,5 +1,8 @@
 package com.rabbitmqc.rabbitmqc.completablefuture;
 
+import com.alibaba.fastjson.JSONObject;
+import lombok.Data;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -13,18 +16,12 @@ import java.util.stream.Collectors;
  * @description: TODO
  * @date 2020/6/513:49
  */
+@Data
 public class Shop {
     private String name;
+    private List<Attr> attr;
     Shop(String name){
         super();
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 
@@ -39,6 +36,9 @@ public class Shop {
         return new Random().nextDouble() * product.charAt(0) + product.charAt(1);
     }
     public static void main(String[] args){
+        Shop sp = new Shop("hh");
+        sp.setAttr(Arrays.asList(new Attr("1")));
+        String str = JSONObject.toJSONString(sp);
         List<Shop> shops = Arrays.asList(
                 new Shop("one"),
                 new Shop("two"),
@@ -55,5 +55,13 @@ public class Shop {
                             }
                             return null;
                         })).collect(Collectors.toList());
+    }
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "name='" + name + '\'' +
+                ", attr=" + attr +
+                '}';
     }
 }
