@@ -34,9 +34,7 @@ public class QueueMsgHandlerImpl implements QueueMsgHandlerService{
     public void exec(List<FlightBody> flightBodyList){
 
         try {
-            /**
-             * 消息推送
-             */
+            long a = System.currentTimeMillis();
             List<CompletableFuture<MessageResponse>> messageFutures = flightBodyList
                     .stream()
                     .map(flight -> CompletableFuture.supplyAsync(() -> {
@@ -48,19 +46,18 @@ public class QueueMsgHandlerImpl implements QueueMsgHandlerService{
                         return null;
                     }))
                     .collect(Collectors.toList());
-
-            /**
-             * 线程等待，获取推送结果
-             */
             List<MessageResponse> results = messageFutures.stream()
                     .map(CompletableFuture::join)
                     .collect(Collectors.toList());
-            /**
-             * 更新状态
-             * TODO results
-             * 将更新的结果入库
-             */
-            updateMessageStatus(results);
+
+
+//            for (int i=0;i<flightBodyList.size();i++){
+//                push();
+//            }
+            updateMessageStatus();
+
+            System.out.println("单条推送时间ms "+(System.currentTimeMillis()-a));
+
         } catch (Exception e) {
             log.error("");
         }
@@ -71,19 +68,20 @@ public class QueueMsgHandlerImpl implements QueueMsgHandlerService{
      */
     public MessageResponse push() throws Exception {
 //        System.out.println("---推送消息---");
-        for(int i=0;i<10000000;i++){
+
+        for(long i=0;i<30000000L;i++){
             i++;
         }
+
         return null;
     }
 
     /**
      * 保存消息推送状态到数据库
-     * @param results
      */
-    public void updateMessageStatus(List<MessageResponse> results) throws InterruptedException {
+    public void updateMessageStatus() throws InterruptedException {
         receiveN.getAndIncrement();
         System.out.println("---更新状态---已处理的消息数量 "+receiveN);
-        Thread.sleep(10);
+//        Thread.sleep(10);
     }
 }

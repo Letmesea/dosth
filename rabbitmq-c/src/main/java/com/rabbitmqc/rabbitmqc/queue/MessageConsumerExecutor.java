@@ -20,8 +20,8 @@ public class MessageConsumerExecutor {
     private final Logger logger = Logger.getLogger("MessageConsumerExecutor");
     private static CacheQueueThreadExecutor cacheQueueThreadExecutor;
     //队列初始容量-假定100
-    private int capacity = 10;
-    private int coreSize = Runtime.getRuntime().availableProcessors()+1;
+    private int capacity = 20;
+    private int coreSize = Runtime.getRuntime().availableProcessors()-1;
 //private int coreSize = 2;
     @Autowired
     private QueueMsgHandlerService queueMsgHandlerService;

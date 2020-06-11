@@ -30,13 +30,16 @@ public class QueueHandleThread implements Runnable{
     public void run() {
         while (true){
             try{
+//                Thread.sleep(5);
                 //take 没有任务则阻塞等待,poll 没有返回null,会一直占用
-                List<FlightBody> flightBodies = blockingQueue.take();
-//                List<FlightBody> flightBodies = blockingQueue.poll();
-                System.out.println("线程 "+Thread.currentThread().getName()+" 执行队列 "+queueIndex+" 队列大小 "+blockingQueue.size());
-                System.out.println("线程池活动线程数 "+((ThreadPoolExecutor)MessageConsumerExecutor.getCacheQueueThreadExecutor().getExecutorService()).getActiveCount());
+                List<FlightBody> flightBodies = blockingQueue.poll();
+                if(flightBodies!=null){
+                    //                List<FlightBody> flightBodies = blockingQueue.poll();
+                    System.out.println("线程 "+Thread.currentThread().getName()+" 执行队列 "+queueIndex+" 队列大小 "+blockingQueue.size());
+                    System.out.println("线程池活动线程数 "+((ThreadPoolExecutor)MessageConsumerExecutor.getCacheQueueThreadExecutor().getExecutorService()).getActiveCount());
 
-                queueMessageHandler.exec(flightBodies);
+                    queueMessageHandler.exec(flightBodies);
+                }
             }catch (Exception e){
                 log.error("");
             }
