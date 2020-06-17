@@ -45,8 +45,5 @@ public class AccountLogBatchListener {
     }
 
     private void execute(){
-        while (true) {
-
-        }
     }
 }

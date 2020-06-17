@@ -28,7 +28,7 @@ public class SendMsgController {
     public String sendDirectMessage() {
 
 
-        for (int j=0;j<1000;j++){
+        for (int j=0;j<6000;j++){
             List<FlightBody> flightBodies = new ArrayList<>();
             for (int i=0;i<100;i++){
                 FlightBody flightBody = new FlightBody();

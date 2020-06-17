@@ -7,6 +7,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.GetResponse;
+import util.ByteToObject;
 
 import java.io.ByteArrayInputStream;
 import java.io.ObjectInputStream;
@@ -17,23 +18,23 @@ import java.util.concurrent.TimeUnit;
  * @author Letmesea
  * @title: ReceiverByGet
  * @projectName dosth
- * @description: TODO
+ * @description: basicGet方式，主动消费
  * @date 2020/6/1617:46
  */
 public class ReceiverByGet {
-    private final static String QUEUE_NAME = "TestDirectQueue";
+    private final static String QUEUE_NAME = "TestDirectQueu";
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("192.168.157.123");
+        factory.setHost("localhost");
         factory.setVirtualHost("p1");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, true, false, false, null);
-
         while (true) {
             GetResponse resp = channel.basicGet(QUEUE_NAME, false);
-            List<FlightBody> flightBody = (List<FlightBody>) ByteToObject(resp.getBody());
+            List<FlightBody> flightBody = (List<FlightBody>) ByteToObject.byteToObject(resp.getBody());
+
             if (resp == null) {
                 System.out.println("Get Nothing!");
                 TimeUnit.MILLISECONDS.sleep(1000);
@@ -43,22 +44,5 @@ public class ReceiverByGet {
                 TimeUnit.MILLISECONDS.sleep(500);
             }
         }
-    }
-    private static Object ByteToObject(byte[] bytes) {
-        Object obj = null;
-        try {
-            // bytearray to object
-            ByteArrayInputStream bi = new ByteArrayInputStream(bytes);
-            ObjectInputStream oi = new ObjectInputStream(bi);
-
-
-            obj = oi.readObject();
-            bi.close();
-            oi.close();
-        } catch (Exception e) {
-            System.out.println("translation" + e.getMessage());
-            e.printStackTrace();
-        }
-        return obj;
     }
 }
