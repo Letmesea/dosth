@@ -1,7 +1,12 @@
 package com.rabbitmq.rabbitmq.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.entity.FlightBody;
 import com.entity.FlightMessage;
+import com.rabbitmq.rabbitmq.util.Obj2Byte;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageDeliveryMode;
+import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +49,16 @@ public class SendMsgController {
             }
 
             CorrelationData correlationData = new CorrelationData(""+j);
-            rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", flightBodies,correlationData);
+            MessageProperties properties=new MessageProperties();
+            properties.setContentType(MessageProperties.DEFAULT_CONTENT_TYPE);
+            properties.setDeliveryMode(MessageDeliveryMode.NON_PERSISTENT);//持久化设置
+//            properties.setExpiration("2018-12-15 23:23:23");//设置到期时间
+//            Message message=new Message("hello".getBytes(),properties);
+//            Message message = new Message(Obj2Byte.toByteArray(flightBodies),properties);
+            Message message = new Message(JSON.toJSONString(flightBodies).getBytes(),properties);
+//            this.rabbitTemplate.sendAndReceive("TestDirectExchange","TestDirectRouting",message);
+            rabbitTemplate.send("TestDirectExchange","TestDirectRouting",message);
+//            rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", flightBodies,correlationData);
 
 
         }

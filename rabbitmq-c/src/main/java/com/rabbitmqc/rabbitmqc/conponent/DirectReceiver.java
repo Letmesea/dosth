@@ -1,8 +1,10 @@
 package com.rabbitmqc.rabbitmqc.conponent;
 
+import com.alibaba.fastjson.JSON;
 import com.entity.FlightBody;
 import com.rabbitmq.client.Channel;
 import com.rabbitmqc.rabbitmqc.queue.MessageConsumerExecutor;
+import com.rabbitmqc.rabbitmqc.utils.ByteToObject;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -32,9 +34,10 @@ public class DirectReceiver {
 //        MessageConsumerExecutor.getCacheQueueThreadExecutor().putObject2Queue(testMsg);
 
         long a = System.currentTimeMillis();
-        for (int i=0;i<testMsg.size();i++){
-            push();
-        }
+//        for (int i=0;i<testMsg.size();i++){
+//            push();
+//        }
+        List<FlightBody> flightBodies=JSON.parseArray(new String(message.getBody()),FlightBody.class);
         receiveN.getAndIncrement();
         System.out.println("单条推送时间ms "+(System.currentTimeMillis()-a));
         System.out.println("已处理的消息数量 "+receiveN);
