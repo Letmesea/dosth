@@ -1,0 +1,808 @@
+
+<title id="title">中國東方航空開票完成確認/電子機票行程單</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+    <table id="t1" class="orderPrintTable" width="811" border="0"
+cellpadding="0" cellspacing="0" style="color: #1a2c4c; margin: 0 30px 10px;
+font-size: 13px; line-height: 22px; background: #ffffff; font-family:
+'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft
+YaHei', '微软雅黑', Arial, sans-serif;">
+        <tbody>
+            <tr>
+                <td width="25%" height="86" colspan="5">
+                    <div style="padding: 23px 0;">
+                        <img id="emailLogoUrl" src="${email_logo}" width="233"
+height="39" alt="">
+                    </div>
+                </td>
+                <td width="75%" height="86" colspan="10"><div id="t1_r01"
+style="height: 82px; line-height: 82px; font-size: 24px; color: #1a2c4c;
+text-align: center; font-weight: bold; font-family:
+'黑体';">中國東方航空開票完成確認/電子機票行程單</div></td>
+            </tr>
+            <tr>
+                <td colspan="15">
+                    <div style="padding-top: 20px; font-size: 16px;
+line-height: 24px;">
+                        <p
+id="t1_r09">您好，<br/>您的機票已開立，訂單號碼是<span style="color: #c2132a;
+font-size:
+18px;">${ordNo}</span><br/>請在您的航班起飛時間至少2小時前抵達機場，或根據航空公司指定時間抵達機場。請至報到櫃檯出示您的所有
+必要之旅行證件。<br/>為保護持卡人的權益並防止偽冒交易，我們可能隨時要求乘客提供線上購票時所使用的銀行卡，以及該銀行卡持卡人>的有效證件。若乘客未能提供上述證件，我們將保留取消訂單以及拒絕該訂單中所有旅客登機的權利。<br/>選座，退改機票或打印電子機票>行程單請點擊<a
+href="http://${ceairUrl}/${site}/manage-booking.html" style="color: #31bdea;"
+target="_blank">http://${ceairUrl}/${site}/manage-booking.html</a><br/>行李資訊，請點擊<a
+href="https://tw.ceair.com/newCMS/tw/hk/content/hk_Header/hk_HeaderBottom/hk_InformationService/hk_luggage/hk_baggageDetail/"
+style="color: #31bdea;"
+target="_blank">https://tw.ceair.com/newCMS/tw/hk/content/hk_Header/hk_HeaderBottom/hk_InformationService/hk_luggage/hk_baggageDetail/</a></p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="100%" height="56" colspan="16"><div id="t1_r05"
+style="padding: 0 5px; font-size: 16px; background: url(${tit_bg}) no-repeat
+left bottom; padding-bottom: 14px; padding-top:
+20px;">旅客信息：提醒臺灣旅客購買純大陸內陸、兩岸航線及臺灣始發的國際中轉產品，請務必填寫有效期內之臺胞證資料，其餘情況依相>關出、入境國家或地區規定填寫有效旅行證件。如因證件資料不符合規定而受到任何損失應由旅客本人承擔。</div></td>
+            </tr>
+            <tr>
+                <td width="100%" colspan="16">
+                    <table id="t1_3" class="orderPrintTable" width="100%"
+cellpadding="6" border="1" style="margin: 0; border-collapse: collapse;
+font-size: 13px; vertical-align: middle; text-align: center; border: 1px solid
+#c2c2c2; color: #1a2c4c;">
+                        <tbody>
+                            <tr bgcolor="#1a2c4c" style="color: #ffffff;
+height: 24px; line-height: 24px;">
+                                <th id="t1_3_r01" width="21%" height="24"
+style="font-weight: normal; text-align: center;" scope="col">機票號碼</th>
+                                <th id="t1_3_r02" width="17%"
+style="font-weight: normal; text-align: center;" scope="col">乘客類型</th>
+                                <th id="t1_3_r03" width="19%"
+style="font-weight: normal; text-align: center;" scope="col">乘客姓名</th>
+                                <th id="t1_3_r05" width="29%"
+style="font-weight: normal; text-align: center;" scope="col">證件號碼</th>
+                            </tr>
+                            <#list paxs as pax>
+                            <tr style="border-bottom: 1px solid #c2c2c2">
+                               <td style="text-align: center; border-right:
+1px solid #c2c2c2">
+                                    <div style="white-space: nowrap;color:
+#c2132a;">${pax.ticketNo}</div>
+                                </td>
+                                <#if pax.paxTypeSameFlag?? &&
+pax.paxTypeSameFlag==false>
+                                    <td style="text-align: center;
+border-right: 1px solid #c2c2c2;color: #c2132a;">
+                                        <#if pax.paxType=='ADT'>
+                                        <span id="t1_r29">成人</span>
+                                        </#if>
+                                        <#if pax.paxType=='CHD'>
+                                        <span
+id="t1_r30">兒童(2-12周歲)</span>
+                                        </#if>
+                                        <#if pax.paxType=='INF'>
+                                        <span id="t1_r31">婴儿</span>
+                                        </#if>
+                                    </td>
+                                <#else>
+                                    <td style="text-align: center;
+border-right: 1px solid #c2c2c2">
+                                        <#if pax.paxType=='ADT'>
+                                        <span id="t1_r32">成人</span>
+                                        </#if>
+                                        <#if pax.paxType=='CHD'>
+                                        <span
+id="t1_r33">兒童(2-12周歲)</span>
+                                        </#if>
+                                        <#if pax.paxType=='INF'>
+                                        <span id="t1_r34">婴儿</span>
+                                        </#if>
+                                    </td>
+                                </#if>
+                               <td style="text-align: center; border-right:
+1px solid #c2c2c2">
+                                    <#if pax.paxNameSameFlag?? &&
+pax.paxNameSameFlag==false>
+                                        <span style="color:
+#c2132a;">${pax.paxName}</span>
+                                    <#else>
+                                        ${pax.paxName}
+                                    </#if>
+                                </td>
+                                <td style="text-align: center;">
+                                    <div style="white-space: nowrap;">
+                                        <#if pax.idNoSameFlag?? &&
+pax.idNoSameFlag==false>
+                                            <span style="color:
+#c2132a;">${pax.idNo}</span>
+                                        <#else>
+                                            ${pax.idNo}
+                                        </#if>
+                                    </div>
+                                </td>
+                            </tr>
+                            </#list>
+                            </tbody>
+                    </table>
+                </td>
+            </tr>
+            <#if detrInfo??>
+            <tr>
+                <td width="100%" height="56" colspan="16"><div id="t1_r03"
+style="padding: 0 5px; font-size: 16px; background: url(${tit_bg}) no-repeat
+left bottom; padding-bottom: 14px; padding-top: 20px;">行
+程：出票日期自2019年4月21日（含）起，已調整東上航大陸與港澳台之間免費託運行李額及逾重行李計費標準為計件制，持成人及兒童客票>免費行李額計件制標準，請查看相關網頁說明
+<a href="https://reurl.cc/W8b55" style="color: #31bdea;"
+target="_blank">https://reurl.cc/W8b55</a></div></td>
+            </tr>
+            </#if>
+            <tr>
+                <td colspan="16">
+                    <table id="t1_1" class="orderPrintTable" width="100%"
+cellpadding="6" border="1" style="margin: 0; border-collapse: collapse;
+font-size: 13px; vertical-align: middle; text-align: center; border: 1px solid
+#c2c2c2; color: #1a2c4c;">
+                        <tbody>
+                        <#if detrInfo??>
+                            <tr bgcolor="#1a2c4c" style="color: #ffffff;
+height: 24px; line-height: 24px;">
+                                <th id="t1_1_r01" width="10%" height="42"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2" scope="col">旅客姓名</th>
+                                <th id="t1_1_r02" width="8%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2" scope="col">航班號碼</th>
+                                <th id="t1_1_r03" width="15%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2" scope="col">出發城市</th>
+                                <th id="t1_1_r04" width="15%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2" scope="col">抵達城市</th>
+                                <th id="t1_1_r05" width="13%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2" scope="col">出發時間<br />(當地時間)</th>
+                                <th id="t1_1_r07" width="8%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2" scope="col">艙等</th>
+                                <th id="t1_1_r08" width="9%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2" scope="col">免費行李額</th>
+                            </tr>
+                            </#if>
+                            <#if detrInfo??>
+                      <#list detrInfo as detr>
+                            <tr style="border-bottom: 1px solid #c2c2c2">
+                                <td style="border-right: 1px solid #c2c2c2">
+                                    <#if detr.paxNameSameFlag?? &&
+detr.paxNameSameFlag==false>
+                                        <span style="color:
+#c2132a;">${detr.paxName}</span>
+                                    <#else>
+                                        ${detr.paxName}
+                                    </#if>
+                                </td>
+                                <td style="border-right: 1px solid #c2c2c2">
+                                    <#if detr.flightNoSameFlag?? &&
+detr.flightNoSameFlag==false>
+                                        <span style="color:
+#c2132a;">${detr.flightNo}</span>
+                                    <#else>
+                                        ${detr.flightNo}
+                                    </#if>
+                                </td>
+                                <td style="border-right: 1px solid #c2c2c2">
+                                    <div style="white-space: nowrap;">
+                                        <#if detr.deptCodeSameFlag?? &&
+detr.deptCodeSameFlag==false>
+                                            <span style="color:
+#c2132a;">${detr.deptCode}</span>
+                                        <#else>
+                                            ${detr.deptCode}
+                                        </#if>
+                                    </div>
+                                    <div style="white-space: nowrap;">
+                                        <#if detr.deptAirportSameFlag?? &&
+detr.deptAirportSameFlag==false>
+                                            <span style="color:
+#c2132a;">(${detr.deptAirport})</span>
+                                        <#else>
+ (${detr.deptAirport})
+                                        </#if>
+                                    </div>
+                                </td>
+                                <td style="border-right: 1px solid #c2c2c2">
+                                    <div style="white-space: nowrap;">
+                                        <#if detr.arrCodeSameFlag?? &&
+detr.arrCodeSameFlag==false>
+                                            <span style="color:
+#c2132a;">${detr.destCode}</span>
+                                        <#else>
+                                            ${detr.destCode}
+                                        </#if>
+                                    </div>
+                                    <div style="white-space: nowrap;">
+                                        <#if detr.ArrAirportSameFlag?? &&
+detr.ArrAirportSameFlag==false>
+                                            <span style="color:
+#c2132a;">(${detr.destAirport})</span>
+                                        <#else>
+                                            (${detr.destAirport})
+                                        </#if>
+                                    </div>
+                                </td>
+                                <td style="border-right: 1px solid #c2c2c2">
+                                    <div style="white-space: nowrap;">
+                                        <#if detr.deptDateSameFlag?? &&
+detr.deptDateSameFlag==false>
+                                            <span style="color:
+#c2132a;">${detr.deptDate}</span>
+                                        <#else>
+                                            ${detr.deptDate}
+                                        </#if>
+                                    </div>
+                                </td>
+
+                                <td style="border-right: 1px solid #c2c2c2">
+                                    <#if detr.cabinSameFlag?? &&
+detr.cabinSameFlag==false>
+                                        <span style="color:
+#c2132a;">${detr.cabin}</span>
+                                    <#else>
+                                        ${detr.cabin}
+                                    </#if>
+                                </td>
+                                <td>
+                                <#if detr.bageUnitSameFlag?? &&
+detr.bageUnitSameFlag==false>
+                                    <span style="color: #c2132a;">${detr.bage}
+${detr.unit!"PC"}</span>
+                                <#else>
+                                    ${detr.bage} ${detr.unit!"PC"}
+                                </#if>
+                            </td>
+                            </tr>
+                            </#list>
+                            </#if>
+                            </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td width="100%" height="56" colspan="16"><div id="t1_r04"
+style="padding: 0 5px; font-size: 16px; background: url(${tit_bg}) no-repeat
+left bottom; padding-bottom: 14px; padding-top: 20px;">訂單信息</div></td>
+            </tr>
+            <tr>
+                <td colspan="16">
+                    <table id="t1_2" class="orderPrintTable" width="100%"
+cellpadding="6" border="1" style="margin: 0; border-collapse: collapse;
+font-size: 13px; vertical-align: middle; text-align: center; border: 1px solid
+#c2c2c2; padding: 6px" scope="col">航程</th>
+                                <th id="t1_2_r02" width="8%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2; padding: 6px" scope="col">航班號碼</th>
+                                <th id="t1_2_r03" width="17%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2; padding: 6px" scope="col">出發城市</th>
+                                <th id="t1_2_r04" width="17%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2; padding: 6px" scope="col">抵達城市</th>
+                                <th id="t1_2_r05" width="13%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2; padding: 6px" scope="col">出發時間</th>
+                                <th id="t1_2_r06" width="13%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2; padding: 6px" scope="col">抵達時間</th>
+                                <th id="t1_2_r07" width="8%"
+style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2; padding: 6px" scope="col">艙等</th>
+                                <th id="t1_2_r08" width="10%"
+style="font-weight: normal; border-right: 1px solid #c2c2c2; padding: 6px"
+scope="col">免費行李額</th>
+                            </tr>
+                            <#list segs as seg>
+                            <tr style="border-bottom: 1px solid #c2c2c2">
+                                <td height="68" rowspan="2" style="text-align:
+center; border-right: 1px solid #c2c2c2">${seg_index+1}</td>
+                                <td style="text-align: center; border-right:
+1px solid #c2c2c2">${seg.flightNo}
+                                    <#if seg.isCodeShare??>
+                                    <#if (seg.isCodeShare)>
+                                        <span id="t1_2_r09">共享航班號</span>
+                                    ${seg.shareNo}
+                                    </#if>
+                                    </#if>
+                                </td>
+ </td>
+                                <td style="text-align: center; border-right:
+1px solid #c2c2c2"><div>${seg.orgCode}</div>
+                                    <div>(${seg.orgAirport})</div></td>
+                                <td style="text-align: center; border-right:
+1px solid #c2c2c2"><div>${seg.destCode}</div>
+                                    <div>(${seg.destAirport})</div></td>
+                                <td style="text-align: center; border-right:
+1px solid #c2c2c2"><div>${seg.orgDate}</div>
+                                    <div>${seg.orgTime}</div></td>
+                                <td style="text-align: center; border-right:
+1px solid #c2c2c2"><div>${seg.destDate}</div>
+                                    <div>${seg.destTime}</div></td>
+                                <td style="text-align: center; border-right:
+1px solid #c2c2c2">${seg.cabinCode}</td>
+                                <td style="text-align:
+center;">${seg.baggageWeight}</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #c2c2c2">
+                                <td colspan="7" align="left">
+                                    <div style="padding: 10px;">
+                                        <div style="text-align: left; float:
+left; width: 100%">
+                                            <b id="t1_2_r10">退票/改票規則</b>
+                                        </div>
+                                        <br/>
+                                        <div align="left" style="line-height:
+24px; float: left; width: 100%">
+                                            具體規則以網站頁面為准<br/>
+                                            <#if seg.equipment??>
+                                            <#if (seg.equipment=='TRN')>
+【兌換說明】請與列車發車前90分鐘前往"
+                                            <#if seg.trnWindowInfo??>
+                                                ${seg.trnWindowInfo}                                           </#if>"領取火車票，並告知櫃檯是兌換「東航空鐵通票」。
+                                                \n【兌換證件】提供本訂單預訂的證件原件。
+\n
+                                                【兌換限制】兒童票將換領成人火車票；嬰兒由於乘坐火車不需車票，將不換領火車票
+。
+\n
+                                                【客票遺失】旅客換取火車票後，應妥善保管。火車票丟失後只能按照鐵路部門相關規
+定自行掛失、補票。
+\n
+                                                【溫馨提醒】本航段由鐵路承運，在本航班離站二日前的
+24:00 (含)
+                                                之前可進行變更。若超過時間，將不能透過網站進行變更。麻煩您至火車取票窗口，按
+鐵路承運規則辦理手續。
+                                            </#if>
+                                            </#if>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            </#list>
+                            <#if promoCode??>
+                            <tr>
+                                <td colspan="8" align="center">
+                                    <div style="padding: 10px;">
+                                        <div style="margin-bottom: 10px;">
+                                            <b><span
+id="t1_2_r11">促銷碼：</span>${promoCode}</b>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </#if>
+ <tr>
+                                <td style="border-right: 1px solid #c2c2c2"
+colspan="4">
+                                    <div style="font-size: 16px; padding: 15px
+5px; text-align: left;">
+                                        <span style="font-size: 20px; color:
+#C10F2F;"><span id="t1_2_r12">總金額：</span><b style="font-size: 24px;
+font-weight: normal">${totalSal?string(',###.##')}
+                                                ${currency}
+                                                <#if totalPoint??>
+                                                +
+${totalPoint?string(',###.##')}<span id="t1_2_r14">積分</span>
+                                                </#if>
+                                                </b> </span><br/>
+                                            <span id="t1_2_r13"
+style="font-size:
+13px;">訂單資訊中的訂單金額僅包含機票金額（不含改期升艙費用），<br/>如您更改行程，請以實際金額為準！</span>
+                                    </div>
+                                </td>
+                                <td colspan="4">
+                                <#list paxInfo as pax>
+                                    <div style="font-size: 16px; text-align:
+left; padding: 5px;">
+                                        <div style="font-weight: bold;">
+                                        <#if pax.paxType=='ADT'>
+                                            <span id="t1_r26">成人</span> *
+${pax.paxNum}
+                                            </#if>
+                                            <#if pax.paxType=='CHD'>
+                                             <span
+id="t1_r27">兒童(2-12周歲)</span> *
+                                            ${pax.paxNum}
+                                            </#if>
+                                            <#if pax.paxType=='INF'>
+                                             <span id="t1_r28">婴儿</span> *
+                                            ${pax.paxNum}
+                                             </#if>
+                                             </div>
+                                       <div style="font-size: 14px;
+padding-left: 10px;">
+                                            <div>
+                                                <span
+id="t1_2_r15">票價:</span><span style="font-size: 16px; color:
+#C10F2F;">${pax.price}
+                                                    <#if totalPoint??>
+                                                    <span
+id="t1_2_r18">積分</span>
+                                            <#else>
+                                                    ${currency}
+                                            </#if>
+                                        </span>
+                                            </div>
+                                            <div>
+                                                <span
+id="t1_2_r16">稅金與費用：</span> <span style="font-size: 16px; color:
+#C10F2F;">${pax.taxfeeAmount?string(',###.##')} ${currency}</span>
+                                            </div>
+
+                                        </div>
+
+                                    </div> </#list>
+                                        <#if promoAmount??>
+                                        <div style="font-size: 16px;
+text-align: left; padding: 5px;font-weight: bold;">
+                                        <span id="t1_2_r17">優惠促銷：</span>
+<span style="font-size: 16px; color: #C10F2F;">${promoAmount}
+${promoCurrency}</span></div>
+                                    </#if>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+          <#if hasGT??>
+            <#if (hasGT)>
+            <tr>
+                <td width="100%" height="56" colspan="16"><div id="t1_r06"
+style="padding: 0 5px; font-size: 16px; background: url(images/tit_bg.png)
+no-repeat left bottom; padding-bottom: 14px; padding-top:
+20px;">台灣高鐵</div></td>
+            </tr>
+            </#if>
+            </#if>
+            <tr>
+                <td width="100%" colspan="16">
+                <#if hasGT??>
+                <#if (hasGT)>
+                    <table id="t1_4" class="orderPrintTable" width="100%"
+cellpadding="6" border="1" style="margin-bottom: 10px; border-collapse:
+collapse; font-size: 13px; vertical-align: middle; text-align: center; border:
+1px solid #c2c2c2; color: #1a2c4c;">
+                        <tbody>
+                            <tr bgcolor="#1a2c4c" style="color: #ffffff;
+height: 24px; line-height: 24px;">
+                                <th id="t1_4_r01" width="10%"
+style="font-weight: normal; text-align: center;" scope="col"
+;="">乘客姓名</th>
+                               <th id="t1_4_r02" width="10%"
+style="font-weight: normal; text-align: center;" scope="col">訂座編號</th>
+                                <th id="t1_4_r03" width="10%"
+style="font-weight: normal; text-align: center;" scope="col">高鐵車次</th>
+                                <th id="t1_4_r04" width="30%"
+style="font-weight: normal; text-align: center;" scope="col">高鐵行程</th>
+                                <th id="t1_4_r05" width="10%"
+style="font-weight: normal; text-align: center;" scope="col">價格</th>
+                                <th id="t1_4_r06" width="10%"
+style="font-weight: normal; text-align: center;" scope="col">取票授權碼</th>
+                                <th id="t1_4_r07" width="10%"
+style="font-weight: normal; text-align: center;" scope="col">付款狀態</th>
+                                <th id="t1_4_r08" width="10%"
+style="font-weight: normal; text-align: center;" scope="col">打票狀態</th>
+                            </tr>
+                            <#if gtInfo??>
+                            <#list gtInfo as gaotie>
+                            <tr>
+                                <td>
+                                    <div style="white-space: nowrap;
+text-align: center;">${gaotie.paxName}</div>
+                                </td>
+                                <td>
+                                    <div style="white-space: nowrap;
+text-align: center;">${gaotie.gaotiePNR!"-"}</div>
+                                </td>
+                                <td>
+                                    <div style="white-space: nowrap;
+text-align: center;">${gaotie.trainNo!"-"}</div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <div>
+                                      <span
+id="t1_4_r09">起：</span>${gaotie.dept}(${gaotie.deptDate})
+                                    </div>
+                                    <div>
+                                        <span
+id="t1_4_r10">抵：</span>${gaotie.dest!"-"}(${gaotie.destDate!"-"})
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="white-space: nowrap;
+text-align: center;">${gaotie.fcny?string(',###.##')}${gaotie.curr}</div>
+                                </td>
+                                <td>
+                                    <div style="white-space: nowrap;
+text-align: center;">${gaotie.authCode!"-"}</div>
+                                </td>
+                                <td>
+                                    <div style="white-space: nowrap;
+text-align: center;">${gaotie.patSt!"-"}</div>
+                                </td>
+                                <td>
+                                    <div style="white-space: nowrap;
+text-align: center;">${gaotie.ticketing!"-"}</div>
+                                </td>
+                            </tr>
+                            </#list>
+                            </#if>
+                            </tbody>
+                    </table>
+                    </#if>
+                    </#if>
+                </td>
+            </tr>
+      <#if hasVIP??>
+            <#if (hasVIP)>
+            <tr>
+                <td width="100%" height="56" colspan="16"><div id="t1_r07"
+style="padding: 0 5px; font-size: 16px; background: url(${tit_bg}) no-repeat
+left bottom; padding-bottom: 14px; padding-top: 20px;">附加服務</div></td>
+            </tr>
+            </#if>
+            </#if>
+            <tr>
+                <td width="100%" colspan="16">
+                <#if hasVIP??>
+                <#if (hasVIP)>
+                    <table id="t1_5" class="orderPrintTable" width="100%"
+cellpadding="6" border="1" style="margin: 0; border-collapse: collapse;
+font-size: 13px; vertical-align: middle; text-align: center; border: 1px solid
+#c2c2c2; color: #1a2c4c;">
+                            <tbody>
+                                <tr bgcolor="#1a2c4c" style="color: #ffffff;
+height: 24px; line-height: 24px;">
+                                    <th id="t1_5_r01" width="15%"
+style="font-weight: normal; text-align: center;" scope="col">附加服務</th>
+                                    <th id="t1_5_r02" width="15%"
+style="font-weight: normal; text-align: center;" scope="col">乘客姓名</th>
+                                    <th id="t1_5_r03" width="17%"
+style="font-weight: normal; text-align: center;" scope="col">出發</th>
+                                    <th id="t1_5_r04" width="18%"
+style="font-weight: normal; text-align: center;" scope="col">到達</th>
+                                    <th id="t1_5_r06" width="20%"
+style="font-weight: normal; text-align: center;" scope="col">詳細</th>
+                                    <th id="t1_5_r05" width="15%"
+style="font-weight: normal; text-align: center;" scope="col">價格</th>
+                                </tr>
+                              <#if emdOrder??>
+                                <#list emdOrder as emd>
+                                <tr>
+                                    <#if emd_index==0>
+                                    <td rowspan="${emdOrderSize}">
+                                        <div id="t1_5_r07" style="white-space:
+nowrap;">选座</div>
+                                    </td>
+                                    </#if>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">${emd.passengerName}</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">${emd.depCity}</div>
+                                        <div style="white-space:
+nowrap;">(${emd.depAirport})</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">${emd.arrCity}</div>
+                                        <div style="white-space:
+nowrap;">(${emd.arrAirport})</div>
+                                    </td>
+                                    <td>
+                                    <#if emd.cabinclass??>
+                                    ${emd.cabinclass}
+                                    <#else>
+                                    <a id="t1_5_r08"
+href="http://${ceairUrl}/${site}/flight-seating.html?tktOrOrderNo=${ordNo}&amp;firstName=${emd.passengerFirstName}&amp;middleName=${emd.passengerMiddleName}&amp;lastName=${emd.passengerLastName}"
+style="color: #31bdea;" target="_blank">请选择</a>
+                                  </#if>
+                                    </td>
+                                    <td>${emd.scny}${emd.currency}</td>
+                                </tr>
+                                </#list>
+                                </#if>
+                                <#if bageList??>
+                                <#list bageList as bage>
+                                <tr>
+                                    <td id="t1_5_r09">逾重行李</td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">TEST/TEST</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">巴黎</div>
+                                        <div style="white-space:
+nowrap;">(上海浦東機場)</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">上海</div>
+                                        <div style="white-space:
+nowrap;">(上海浦東機場)</div>
+                                    </td>
+                                    <td>3件</td>
+                                    <td>.00USD</td>
+                                </tr>
+                                </#list>
+                                </#if>
+                                <#if wifiList??>
+                                <#list wifiList as wifi>
+                              <tr>
+                                    <td id="t1_5_r10">机上WiFi</td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">TEST/TEST</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">巴黎</div>
+                                        <div style="white-space:
+nowrap;">(上海浦東機場)</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">上海</div>
+                                        <div style="white-space:
+nowrap;">(上海浦東機場)</div>
+                                    </td>
+                                    <td>2</td>
+                                    <td>.00USD</td>
+                                </tr>
+                                </#list>
+                                </#if>
+                                <#if gtInfo??>
+                                <#list gtInfo as gaotie>
+                                <tr>
+                                    <td>${gaotie.title}</td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">${gaotie.paxName}</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">${gaotie.dept}</div>
+                                    </td>
+                                    <td>
+                                       <div style="white-space:
+nowrap;">${gaotie.dest}</div>
+                                    </td>
+                                    <td>${gaotie.deptDate}</td>
+                                    <td>${gaotie.fcny}${gaotie.curr}</td>
+
+                                </tr>
+                                </#list>
+                                </#if>
+                                <#if vipInfo??>
+                                <#list vipInfo as vip>
+                                <tr>
+                                    <td>${vip.title}</td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">${vip.paxName}</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">${vip.depCity}</div>
+                                        <div style="white-space:
+nowrap;">(${vip.deptAir})</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">${vip.arrCity}</div>
+                                        <div style="white-space:
+nowrap;">${vip.arrAir}</div>
+                                    </td>
+                                    <td>${vip.vipRoom!"-"}</td>
+                                    <td>${vip.fcny}${vip.curr}</td>
+
+                                </tr>
+                                </#list>
+                                </#if>
+                                <#if tripList??>
+                                <#list tripList as trip>
+
+                               <tr>
+                                    <td id="t1_5_r11">舒适旅行</td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">TEST/TEST</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">巴黎</div>
+                                        <div style="white-space:
+nowrap;">(上海浦東機場)</div>
+                                    </td>
+                                    <td>
+                                        <div style="white-space:
+nowrap;">上海</div>
+                                        <div style="white-space:
+nowrap;">(上海浦東機場)</div>
+                                    </td>
+
+                                    <td style="text-align: left;">
+                                        <div>1.磁悬浮列车票券</div>
+                                        <div>2.东航旅游餐券</div>
+                                        <div>3.中转酒店</div>
+                                        <div>4.足浴券</div>
+                                    </td>
+                                    <td>.00USD</td>
+                                </tr>
+                                </#list>
+                                </#if>
+                            </tbody>
+                    </table>
+                    </#if>
+                    </#if>
+                </td>
+            </tr>
+            <!--
+            <tr>
+                <td colspan="15">
+                    <div style="padding: 20px 0 20px 0; font-size: 16px;
+line-height: 24px; border-bottom: 1px dotted #c2c2c2;">
+                        <p id="t1_r08" style="color: #31bdea;"><span
+style="font-weight:bold">※高鐵限制：</span><br/>高鐵免費或加購專案適用購票日期：自即日起至2020年3月31日(含)止。機票行程出發>日期：自2020年01月01日起至2020年12月31日。以下機票行程之台灣始發日期不適用：2020年10月05日-2020年10月11日；以下機票行程之大>陸始發日期不適用：2020年09月25日-2020年10月03日； 2021年01月01日-2021年01月15日。針對『免費高鐵』的訂單，亦不支持網上改期。>如機票欲更改航班日期，去回程『不得』涉及上述不適用區間；若需更改航班至不得涉及的區間，請您致電東航台灣客服中心：412-8118，手
+機直撥+03，須由人工協助將高鐵訂位系統狀態修改為【系統退票】後，方能更改機票，其餘狀態【已打票/已過期/開票失敗/開票成功/未打>票】一律不允許機票改期。</p>
+                    </div>
+                </td>
+            </tr>
+			-->
+            <tr>
+                <td colspan="15">
+                    <div style="padding: 20px 0; font-size: 16px; line-height:
+24px;">
+                        <p id="t1_r15">&nbsp;<span
+style="font-weight:bold">※旅行須知：</span><br/>1.為保護您的乘客權益，請詳讀航空公司承運條件。請在您的航班起飛時間至少2小時>前抵達機場，或根據航空公司 指定時間抵達機場至報到櫃檯出示您有效的旅行證件。<br/>
+2.由於航班時刻可能會變動，請隨時留意航班動態或下載最新的行程單以查詢行程資訊，
+                                                行程單上若顯示『紅字』，則為『已更動後』航班時間。<br/>
+3.訂單信息中僅包含機票金額，不含改期升艙費用，如您更改行程，請登入『行程管理』依照改期升艙後的金額顯 示為準，惟本網站高鐵訂>單『不支持』網上改期，請您務必留意：<a href="https://reurl.cc/4Q5D2" style="color: #31bdea;" target="_blank">https://reurl.cc/4Q5D2</a><br/>
+4.如需求開立抬頭統編『購票證明單』，請線上申請：<a href="https://reurl.cc/3LDLl" style="color: #31bdea;"
+target="_blank">https://reurl.cc/3LDLl</a><br/>
+5.提前預購計件制『逾重行李享8折』，請參考相關網頁說明 <a href="https://reurl.cc/8O2eb" style="color: #31bdea;"
+target="_blank">https://reurl.cc/8O2eb</a><br/>
+6.如需『變更旅客姓名或證件號修改』，請參考相關網頁說明 <a href="https://reurl.cc/e5zGKR" style="color: #31bdea;"
+target="_blank">https://reurl.cc/e5zGKR</a><br/>
+7.銀行專屬優惠，請參考相關網頁 <a href="https://reurl.cc/YlMl7n" style="color: #31bdea;"
+target="_blank">https://reurl.cc/YlMl7n</a><br/>
+8.每月9號快閃價最優惠，請參考網頁 <a href="https://reurl.cc/vnynnN" style="color: #31bdea;"
+target="_blank">https://reurl.cc/vnynnN</a><br/>
+9.東方萬里行會員購票享台灣始發『全航線95折』，請參考網頁說明 <a href="https://reurl.cc/drn1Yk" style="color: #31bdea;"
+target="_blank">https://reurl.cc/drn1Yk</a><br/>
+10.<span style="color: #ff0000;"> 受新冠疫情影響，以上服務可能有所調整，詳情請查看官網『即時快訊』</span> <a href="hhttps://reurl.cc/lV9X66" style="color: #31bdea;"
+target="_blank">https://reurl.cc/lV9X66</a><br/>
+
+</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="16">
+                                            <div id="t1_r23"
+>如對前述內容有任何疑問，請撥打中國東方航空台灣呼叫中心客服專線412-8118(手機直撥03-4128118)<br/>(或全球客服熱線:
+0086-21-95530)<br/>
+如對前述內容有任何疑問，請撥打中國東方航空台灣呼叫中心客服專線412-8118(手機直撥03-4128118)<br/>(或全球客服熱線:
+0086-21-95530)<br/>
+如對前述內容有任何疑問，請撥打中國東方航空台灣呼叫中心客服專線412-8118(手機直撥03-4128118)<br/>(或全球客服熱線:
+0086-21-95530)<br/>如對前述內容有任何疑問，請撥打中國東方航空台灣呼叫中心客服專線412-8118(手機直撥03-4128118)<br/>(或全球客服熱線:
+0086-21-95530)<br/>如對前述內容有任何疑問，請撥打中國東方航空台灣呼叫中心客服專線412-8118(手機直撥03-4128118)<br/>(或全球客服熱線:
+0086-21-95530)<br/>感謝您預訂東航服務，祝您旅途愉快祝您旅途愉快祝您旅途愉快祝您旅途愉快祝您旅途愉快！</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
