@@ -4,253 +4,357 @@
     <meta charset="UTF-8">
     <title>KN互售每周</title>
     <style>
-        .div1{
+        .div1 {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .div1_1{
-            padding: 0 5px; font-size: 15px; background: no-repeat
-        left bottom; padding-bottom: 5px; padding-top: 10px;
+
+        .div1_1 {
+            padding: 0 5px;
+            font-size: 18px;
+            background: no-repeat left bottom;
+            padding-bottom: 5px;
+            padding-top: 10px;
+            font-weight: bold
         }
     </style>
 </head>
 <body>
 <div class="div1">
     <!--周数据-->
-    <div class="div1_1">周数据</div>
+    <div class="div1_1">周数据（${}）</div>
 </div>
-    <table id="t1_4" class="orderPrintTable" style="margin-bottom: 10px; border-collapse:collapse; font-size: 13px; vertical-align: middle; text-align: center; border:1px solid #c2c2c2; color: #1a2c4c;" width="100%" cellpadding="6" border="1">
-        <tbody>
-        <tr style="color: #ffffff;
+<table id="t1_4" class="orderPrintTable"
+       style="margin-bottom: 10px; border-collapse:collapse; font-size: 13px; vertical-align: middle; text-align: center; border:1px solid #c2c2c2; color: #1a2c4c;"
+       width="100%" cellpadding="6" border="1">
+    <tbody>
+    <tr style="color: #ffffff;
 height: 24px; line-height: 24px;" bgcolor="#1a2c4c">
-            <th id="t1_4_r01" style="font-weight: normal; text-align: center;" scope="col" width="10%">渠道
-            </th>
-            <th id="t1_4_r02" style="font-weight: normal; text-align: center;" scope="col" width="10%">产品类型
-            </th>
-            <th id="t1_4_r03" style="font-weight: normal; text-align: center;" scope="col" width="10%">销售金额
-            </th>
-            <th id="t1_4_r04" style="font-weight: normal; text-align: center;" scope="col" width="10%">票面价
-            </th>
-            <th id="t1_4_r05" style="font-weight: normal; text-align: center;" scope="col" width="10%">税费
-            </th>
-            <th id="t1_4_r06" style="font-weight: normal; text-align: center;" scope="col" width="10%">订单数
-            </th>
-            <th id="t1_4_r07" style="font-weight: normal; text-align: center;" scope="col" width="10%">票数
-            </th>
-            <th id="t1_4_r08" style="font-weight: normal; text-align: center;" scope="col" width="10%">航段数
-            </th>
-        </tr>
-        <#list salesData as sdata>
-        <tr>
-            <td>
-                <div style="white-space: nowrap;
+        <th id="t1_4_r01" style="font-weight: normal; text-align: center;" scope="col" width="10%">渠道
+        </th>
+        <th id="t1_4_r02" style="font-weight: normal; text-align: center;" scope="col" width="10%">产品类型
+        </th>
+        <th id="t1_4_r03" style="font-weight: normal; text-align: center;" scope="col" width="10%">销售金额
+        </th>
+        <th id="t1_4_r04" style="font-weight: normal; text-align: center;" scope="col" width="10%">票面价
+        </th>
+        <th id="t1_4_r05" style="font-weight: normal; text-align: center;" scope="col" width="10%">税费
+        </th>
+        <th id="t1_4_r06" style="font-weight: normal; text-align: center;" scope="col" width="10%">订单数
+        </th>
+        <th id="t1_4_r07" style="font-weight: normal; text-align: center;" scope="col" width="10%">票数
+        </th>
+        <th id="t1_4_r08" style="font-weight: normal; text-align: center;" scope="col" width="10%">航段数
+        </th>
+    </tr>
+    <#list salesData as sdata>
+    <tr>
+        <td>
+            <div style="white-space: nowrap;
 text-align: center;">${sdata.paxName}
-                </div>
-            </td>
-            <td>
-                <div style="white-space: nowrap;
+            </div>
+        </td>
+        <td>
+            <div style="white-space: nowrap;
 text-align: center;">${sdata.sdataPNR!"-"}
-                </div>
-            </td>
-            <td>
-                <div style="white-space: nowrap;
+            </div>
+        </td>
+        <td>
+            <div style="white-space: nowrap;
 text-align: center;">${sdata.trainNo!"-"}
-                </div>
-            </td>
-            <td style="text-align: center;">
-                <div>
-                    <span id="t1_4_r09">起：</span>${sdata.dept}(${sdata.deptDate})
-                </div>
-            </td>
-            <td>
-                <div style="white-space: nowrap;
+            </div>
+        </td>
+        <td style="text-align: center;">
+            <div>
+                <span id="t1_4_r09">起：</span>${sdata.dept}(${sdata.deptDate})
+            </div>
+        </td>
+        <td>
+            <div style="white-space: nowrap;
 text-align: center;">${sdata.fcny?string(',###.##')}${sdata.curr}
-                </div>
-            </td>
-            <td>
-                <div style="white-space: nowrap;
+            </div>
+        </td>
+        <td>
+            <div style="white-space: nowrap;
 text-align: center;">${sdata.authCode!"-"}
-                </div>
-            </td>
-            <td>
-                <div style="white-space: nowrap;
+            </div>
+        </td>
+        <td>
+            <div style="white-space: nowrap;
 text-align: center;">${sdata.patSt!"-"}
-                </div>
-            </td>
-            <td>
-                <div style="white-space: nowrap;
+            </div>
+        </td>
+        <td>
+            <div style="white-space: nowrap;
 text-align: center;">${sdata.ticketing!"-"}
-                </div>
-            </td>
-        </tr>
-        </#list>
-        </tbody>
-    </table>
+            </div>
+        </td>
+    </tr>
+    </
+    #list>
+    </tbody>
+</table>
 <div class="div1">
     <!--明细-->
     <div class="div1_1">明细</div>
 </div>
-    <table id="t1_2" class="orderPrintTable" style="margin: 0; border-collapse: collapse;
+<table id="t1_2" class="orderPrintTable" style="margin: 0; border-collapse: collapse;
 font-size: 13px; vertical-align: middle; text-align: center; border: 1px solid
 #c2c2c2; padding: 6px" scope="col" width="100%" cellpadding="6" border="1">
-        <tbody>
+    <tbody>
 
-        <tr style="color: #ffffff;
+    <tr style="color: #ffffff;
 height: 24px; line-height: 24px;" bgcolor="#1a2c4c">
-            <th id="t1_2_r02" style="font-weight: normal; text-align: center; border-right: 1px solid
-#c2c2c2; padding: 6px" scope="col" width="8%">航班號碼</th>
-            <th id="t1_2_r03" style="font-weight: normal; text-align: center; border-right: 1px solid
-#c2c2c2; padding: 6px" scope="col" width="17%">出發城市</th>
-            <th id="t1_2_r04" style="font-weight: normal; text-align: center; border-right: 1px solid
-#c2c2c2; padding: 6px" scope="col" width="17%">抵達城市</th>
-            <th id="t1_2_r05" style="font-weight: normal; text-align: center; border-right: 1px solid
-#c2c2c2; padding: 6px" scope="col" width="13%">出發時間</th>
-            <th id="t1_2_r06" style="font-weight: normal; text-align: center; border-right: 1px solid
-#c2c2c2; padding: 6px" scope="col" width="13%">抵達時間</th>
-            <th id="t1_2_r07" style="font-weight: normal; text-align: center; border-right: 1px solid
-#c2c2c2; padding: 6px" scope="col" width="8%">艙等</th>
-            <th id="t1_2_r08" style="font-weight: normal; border-right: 1px solid #c2c2c2; padding: 6px" scope="col" width="10%">免費行李額</th>
-        </tr><tr style="border-bottom: 1px solid #c2c2c2">
-            <td rowspan="2" style="text-align:
-center; border-right: 1px solid #c2c2c2" height="68">${seg_index+1}</td>
-            <td style="text-align: center; border-right:
-1px solid #c2c2c2">${seg.flightNo}
-                &lt;#if seg.isCodeShare??&gt;
-                &lt;#if (seg.isCodeShare)&gt;
-                <span id="t1_2_r09">共享航班號</span>
-                ${seg.shareNo}
-                <!--#if-->
-                <!--#if-->
-            </td>
-
-            <td style="text-align: center; border-right:
-1px solid #c2c2c2"><div>${seg.orgCode}</div>
-                <div>(${seg.orgAirport})</div></td>
-            <td style="text-align: center; border-right:
-1px solid #c2c2c2"><div>${seg.destCode}</div>
-                <div>(${seg.destAirport})</div></td>
-            <td style="text-align: center; border-right:
-1px solid #c2c2c2"><div>${seg.orgDate}</div>
-                <div>${seg.orgTime}</div></td>
-            <td style="text-align: center; border-right:
-1px solid #c2c2c2"><div>${seg.destDate}</div>
-                <div>${seg.destTime}</div></td>
-            <td style="text-align: center; border-right:
-1px solid #c2c2c2">${seg.cabinCode}</td>
-            <td style="text-align:
-center;">${seg.baggageWeight}</td>
-        </tr>
-        <tr style="border-bottom: 1px solid #c2c2c2">
-            <td colspan="7" align="left">
-                <div style="padding: 10px;">
-                    <div style="text-align: left; float:
-left; width: 100%">
-                        <b id="t1_2_r10">退票/改票規則</b>
-                    </div>
-                    <br>
-                    <div style="line-height:
-24px; float: left; width: 100%" align="left">
-                        具體規則以網站頁面為准<br>
-                        &lt;#if seg.equipment??&gt;
-                        &lt;#if (seg.equipment=='TRN')&gt;
-                        【兌換說明】請與列車發車前90分鐘前往"
-                        &lt;#if seg.trnWindowInfo??&gt;
-                        ${seg.trnWindowInfo}                                           <!--#if-->"領取火車票，並告知櫃檯是兌換「東航空鐵通票」。
-                        \n【兌換證件】提供本訂單預訂的證件原件。
-                        \n
-                        【兌換限制】兒童票將換領成人火車票；嬰兒由於乘坐火車不需車票，將不換領火車票
-                        。
-                        \n
-                        【客票遺失】旅客換取火車票後，應妥善保管。火車票丟失後只能按照鐵路部門相關規
-                        定自行掛失、補票。
-                        \n
-                        【溫馨提醒】本航段由鐵路承運，在本航班離站二日前的
-                        24:00 (含)
-                        之前可進行變更。若超過時間，將不能透過網站進行變更。麻煩您至火車取票窗口，按
-                        鐵路承運規則辦理手續。
-                        <!--#if-->
-                        <!--#if-->
-                    </div>
-                </div>
-            </td>
-        </tr>
-
-        <!--#list--><tr>
-            <td colspan="8" align="center">
-                <div style="padding: 10px;">
-                    <div style="margin-bottom: 10px;">
-                        <b><span id="t1_2_r11">促銷碼：</span>${promoCode}</b>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <!--#if-->
-        <tr>
-            <td style="border-right: 1px solid #c2c2c2" colspan="4">
-                <div style="font-size: 16px; padding: 15px
-5px; text-align: left;">
-                                        <span style="font-size: 20px; color:
-#C10F2F;"><span id="t1_2_r12">總金額：</span><b style="font-size: 24px;
-font-weight: normal">${totalSal?string(',###.##')}
-                                                ${currency}
-                                                &lt;#if totalPoint??&gt;
-                                                +
-${totalPoint?string(',###.##')}<span id="t1_2_r14">積分</span>
-                                            <!--#if-->
-                                                </b> </span><br>
-                    <span id="t1_2_r13" style="font-size:
-13px;">訂單資訊中的訂單金額僅包含機票金額（不含改期升艙費用），<br>如您更改行程，請以實際金額為準！</span>
-                </div>
-            </td>
-            <td colspan="4">
-                &lt;#list paxInfo as pax&gt;
-                <div style="font-size: 16px; text-align:
-left; padding: 5px;">
-                    <div style="font-weight: bold;">
-                        &lt;#if pax.paxType=='ADT'&gt;
-                        <span id="t1_r26">成人</span> *
-                        ${pax.paxNum}
-                        <!--#if-->
-                        &lt;#if pax.paxType=='CHD'&gt;
-                        <span id="t1_r27">兒童(2-12周歲)</span> *
-                        ${pax.paxNum}
-                        <!--#if-->
-                        &lt;#if pax.paxType=='INF'&gt;
-                        <span id="t1_r28">婴儿</span> *
-                        ${pax.paxNum}
-                        <!--#if-->
-                    </div>
-                    <div style="font-size: 14px;
-padding-left: 10px;">
-                        <div>
-                            <span id="t1_2_r15">票價:</span><span style="font-size: 16px; color:
-#C10F2F;">${pax.price}
-                                                    &lt;#if totalPoint??&gt;
-                                                    <span id="t1_2_r18">積分</span>
-                                            &lt;#else&gt;
-                                                    ${currency}
-                            <!--#if-->
-                                        </span>
-                        </div>
-                        <div>
-                            <span id="t1_2_r16">稅金與費用：</span> <span style="font-size: 16px; color:
-#C10F2F;">${pax.taxfeeAmount?string(',###.##')} ${currency}</span>
-                        </div>
-
-                    </div>
-
-                </div> <!--#list-->
-                &lt;#if promoAmount??&gt;
-                <div style="font-size: 16px;
-text-align: left; padding: 5px;font-weight: bold;">
-                    <span id="t1_2_r17">優惠促銷：</span>
-                    <span style="font-size: 16px; color: #C10F2F;">${promoAmount}
-${promoCurrency}</span></div>
-                <!--#if-->
-            </td>
-        </tr>
-        </tbody>
-    </table>
+        <th id="t1_2_r01" style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2; padding: 6px" scope="col" width="8%">日期
+        </th>
+        <th id="t1_2_r02" style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2; padding: 6px" scope="col" width="8%">渠道
+        </th>
+        <th id="t1_2_r03" style="font-weight: normal; text-align: center; border-right: 1px solid
+#c2c2c2; padding: 6px" scope="col" width="8%">用户类型
+        </th>
+        <th id="t1_4_r04" style="font-weight: normal; text-align: center;" scope="col" width="8%">产品类型
+        </th>
+        <th id="t1_4_r05" style="font-weight: normal; text-align: center;" scope="col" width="8%">销售金额
+        </th>
+        <th id="t1_4_r06" style="font-weight: normal; text-align: center;" scope="col" width="8%">票面价
+        </th>
+        <th id="t1_4_r07" style="font-weight: normal; text-align: center;" scope="col" width="8%">税费
+        </th>
+        <th id="t1_4_r08" style="font-weight: normal; text-align: center;" scope="col" width="8%">订单数
+        </th>
+        <th id="t1_4_r09" style="font-weight: normal; text-align: center;" scope="col" width="8%">票数
+        </th>
+        <th id="t1_4_r10" style="font-weight: normal; text-align: center;" scope="col" width="8%">航段数
+        </th>
+    </tr>
+    <tr style="border-bottom: 1px solid #c2c2c2">
+        <td rowspan="9" style="text-align:center; border-right: 1px solid #c2c2c2">${seg_index+1}
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2" style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">7860</span>
+        </td>
+        <td style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">成人</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+    </tr>
+    <tr>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">儿童</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2" style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">7860</span>
+        </td>
+        <td style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">成人</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+    </tr>
+    <tr>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">儿童</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2" style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">7860</span>
+        </td>
+        <td style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">成人</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+    </tr>
+    <tr>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">儿童</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2" style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">7860</span>
+        </td>
+        <td style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">成人</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+    </tr>
+    <tr>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">儿童</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+        <td  style="text-align: center; border-right:1px solid #c2c2c2">
+            <span id="t1_2_r09">222</span>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
