@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>KN互售每周</title>
+    <title>KN互售${date}报表</title>
     <style>
         .div1 {
             display: flex;
@@ -29,7 +29,7 @@
 <body>
 <div class="div1">
     <!--周数据-->
-    <div class="div1_1">周数据（${date}）</div>
+    <div class="div1_1">汇总</div>
 </div>
 <table id="t1_4" class="orderPrintTable"
        style="margin-bottom: 10px; border-collapse:collapse; font-size: 13px; vertical-align: middle; text-align: center; border:1px solid #c2c2c2; color: #1a2c4c;"
