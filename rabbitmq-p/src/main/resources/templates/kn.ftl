@@ -7,16 +7,23 @@
         .div1 {
             display: flex;
             align-items: center;
+            justify-content: left;
+        }
+        .div2 {
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
-
         .div1_1 {
             padding: 0 5px;
-            font-size: 18px;
+            font-size: 15px;
             background: no-repeat left bottom;
             padding-bottom: 5px;
             padding-top: 10px;
             font-weight: bold
+        }
+        .div1_11{
+            font-size: 20px;
         }
         td{
             border: 1px solid;
@@ -27,6 +34,10 @@
     </style>
 </head>
 <body>
+<div class="div2">
+    <!--周数据-->
+    <div class="div1_1 div1_11">KN互售${date}报表</div>
+</div>
 <div class="div1">
     <!--周数据-->
     <div class="div1_1">汇总</div>
