@@ -126,9 +126,9 @@ height: 24px; line-height: 24px;" bgcolor="#1a2c4c">
         </th>
         <th id="t1_2_r02" style="font-weight: normal; text-align: center;  padding: 6px" scope="col" width="8%">渠道
         </th>
-        <th id="t1_2_r03" style="font-weight: normal; text-align: center;  padding: 6px" scope="col" width="8%">用户类型
-        </th>
         <th id="t1_4_r04" style="font-weight: normal; text-align: center;" scope="col" width="8%">产品类型
+        </th>
+        <th id="t1_2_r03" style="font-weight: normal; text-align: center;  padding: 6px" scope="col" width="8%">乘客类型
         </th>
         <th id="t1_4_r05" style="font-weight: normal; text-align: center;" scope="col" width="8%">销售金额
         </th>
@@ -156,12 +156,13 @@ height: 24px; line-height: 24px;" bgcolor="#1a2c4c">
                         <span id="t1_2_r09">${sdd11.channel}</span>
                     </td>
                 </#if>
-                <td style="text-align: center; ">
-                    <span id="t1_2_r09">${sdd11.passengerTp}</span>
-                </td>
                 <td  style="text-align: center; ">
                     <span id="t1_2_r09">${sdd11.productType}</span>
                 </td>
+                <td style="text-align: center; ">
+                    <span id="t1_2_r09">${sdd11.passengerTp}</span>
+                </td>
+
                 <td  style="text-align: center; ">
                     <span id="t1_2_r09">${sdd11.salesAmount}</span>
                 </td>
