@@ -20,11 +20,11 @@ public class FileUtil {
             bw.close();
 
             /*字节*/
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
-            bufferedOutputStream.write(data.getBytes());
-            bufferedOutputStream.flush();
-            bufferedOutputStream.close();
+//            FileOutputStream fileOutputStream = new FileOutputStream(file);
+//            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+//            bufferedOutputStream.write(data.getBytes());
+//            bufferedOutputStream.flush();
+//            bufferedOutputStream.close();
 
 
             System.out.println("Done");
@@ -43,7 +43,6 @@ public class FileUtil {
             while ((bytet=bufferedInputStream.read())!=-1){
                 System.out.print(bytet);
             }
-            fileInputStream.close();
             bufferedInputStream.close();
 
             /*字符流，按行读取*/
@@ -54,8 +53,6 @@ public class FileUtil {
             while ((str=bufferedReader.readLine())!=null){
                 System.out.println(str);
             }
-            fileInputStream1.close();
-            inputStreamReader.close();
             bufferedReader.close();
         }catch (IOException e){
             e.printStackTrace();
