@@ -33,30 +33,33 @@ public class FileUtil {
             e.printStackTrace();
         }
     }
-    public static void readFile(String url){
+    public static String readFile(String url){
         try {
             File file = new File(url);
             /*字节流读入，一次一个*/
-            FileInputStream fileInputStream = new FileInputStream(file);
+/*            FileInputStream fileInputStream = new FileInputStream(file);
             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
             int bytet;
             while ((bytet=bufferedInputStream.read())!=-1){
                 System.out.print(bytet);
             }
-            bufferedInputStream.close();
+            bufferedInputStream.close();*/
 
             /*字符流，按行读取*/
             FileInputStream fileInputStream1 = new FileInputStream(file);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream1);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String str;
-            while ((str=bufferedReader.readLine())!=null){
-                System.out.println(str);
+            StringBuilder str=new StringBuilder();
+            String strt ;
+            while ((strt=bufferedReader.readLine())!=null){
+                str.append(strt);
             }
             bufferedReader.close();
+            return str.toString();
         }catch (IOException e){
             e.printStackTrace();
         }
+        return null;
     }
     public static void main(String[] args){
         String url = "D:\\prj\\coding\\dosth\\rabbitmq-p\\src\\main\\resources\\12.html";
