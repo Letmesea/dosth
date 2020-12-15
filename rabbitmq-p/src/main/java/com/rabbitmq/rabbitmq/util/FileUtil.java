@@ -47,7 +47,8 @@ public class FileUtil {
 
             /*字符流，按行读取*/
             FileInputStream fileInputStream1 = new FileInputStream(file);
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream1);
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream1);
+            InputStreamReader inputStreamReader = new InputStreamReader(bufferedInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             StringBuilder str=new StringBuilder();
             String strt ;
