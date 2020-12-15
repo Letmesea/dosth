@@ -53,7 +53,7 @@ public class FileUtil {
             StringBuilder str=new StringBuilder();
             String strt ;
             while ((strt=bufferedReader.readLine())!=null){
-                str.append(strt);
+                str.append(strt).append("\n");
             }
             bufferedReader.close();
             return str.toString();
@@ -63,7 +63,8 @@ public class FileUtil {
         return null;
     }
     public static void main(String[] args){
-        String url = "D:\\prj\\coding\\dosth\\rabbitmq-p\\src\\main\\resources\\12.html";
-        readFile(url);
+        String url = null;
+        url = FileUtil.class.getResource("/").getPath()+"/12.html";
+        System.out.println(readFile(url));
     }
 }

@@ -47,8 +47,8 @@ public class FreeMarkerUtils {
 //        map.put("salesData",jsonObject.getJSONObject("map").get("salesData"));
 
 
-
-        String string = FileUtil.readFile("D:\\prj\\coding\\dosth\\rabbitmq-p\\src\\main\\resources\\datadaily");
+        String url = FreeMarkerUtils.class.getResource("/").getPath()+"/datadaily";
+        String string = FileUtil.readFile(url);
         JSONObject jsonObject1 = JSONObject.parseObject(string);
         map.put("date",jsonObject1.getJSONObject("map").get("date"));
         map.put("salesData",jsonObject1.getJSONObject("map").get("salesData"));
@@ -56,7 +56,7 @@ public class FreeMarkerUtils {
         map.put("salesDataProduct",jsonObject1.getJSONObject("map").get("salesDataProduct"));
 
         String res = getTemplate("salesDailyt.ftl",map);
-        String path = "D:\\prj\\coding\\dosth\\rabbitmq-p\\src\\main\\resources\\13.html";
+        String path = FreeMarkerUtils.class.getResource("/").getPath()+"/13.html";
         FileUtil.writeFile(path,res);
         System.out.println(res);
     }
