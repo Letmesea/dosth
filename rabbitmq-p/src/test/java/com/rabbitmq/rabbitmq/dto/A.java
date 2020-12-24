@@ -8,6 +8,7 @@ public class A {
         this.channel = channel;
         this.payAmount = payAmount;
     }
+    public A(){}
     public String getChannel() {
         return channel;
     }

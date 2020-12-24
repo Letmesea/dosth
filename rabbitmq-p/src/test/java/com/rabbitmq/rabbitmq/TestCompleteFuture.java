@@ -1,6 +1,7 @@
 package com.rabbitmq.rabbitmq;
 
 import com.alibaba.fastjson.JSONObject;
+import com.rabbitmq.rabbitmq.dto.A;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -36,12 +37,19 @@ public class TestCompleteFuture {
     }
     public static void issueTicketManual(){
         Map<String,Object> map = new HashMap<>();
-        List<String> list = Arrays.asList("1","2");
+        List<A> list = new ArrayList<>();
+        list.add(new A("111","1"));
+        list.add(new A("222","2"));
+        list.add(new A("333","3"));
+        /*注意在这里定义的变量，如果要在lambda表达式中赋值，会出现问题*/
+//        A a = new A();
         List<CompletableFuture<List<String>>> messageFutures = list
                 .stream()
                 .map(flight -> CompletableFuture.supplyAsync(() -> {
                     try {
-                        return func();
+                        A a = new A();
+                        a.setChannel(flight.getChannel());
+                        return func(a);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -52,11 +60,12 @@ public class TestCompleteFuture {
         List<List<String>> results = messageFutures.stream()
                 .map(CompletableFuture::join)
                 .collect(Collectors.toList());
+        System.out.println(JSONObject.toJSON(results).toString());
         map.put("result", results);
     }
-    public static List<String> func() throws InterruptedException {
-        Thread.sleep(10000);
-        return Arrays.asList("1");
+    public static List<String> func(A s) throws InterruptedException {
+        Thread.sleep(10);
+        return Arrays.asList(s.getChannel());
     }
     public static int differentDaysByMillisecond(Date date1, Date date2)
     {
