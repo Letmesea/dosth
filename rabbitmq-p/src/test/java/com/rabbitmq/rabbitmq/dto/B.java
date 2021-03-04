@@ -1,7 +1,10 @@
 package com.rabbitmq.rabbitmq.dto;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class B {
     private String channel;
+    @JSONField(name = "payAmount")
     private String refundAmount;
     public B(String channel,String refundAmount){
         this.channel = channel;

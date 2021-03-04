@@ -1,5 +1,7 @@
 package com.rabbitmq.rabbitmq;
 
+import com.alibaba.fastjson.JSONObject;
+import com.rabbitmq.rabbitmq.dto.B;
 import com.utils.EncryptUtil;
 
 /**
@@ -11,6 +13,9 @@ import com.utils.EncryptUtil;
  */
 public class test {
     public static void main(String[] args) throws Exception {
+
+        String A1 = "{\"channel\":\"zhengtao\",\"refundAmount\":\"18\"}";
+        B b = JSONObject.parseObject(A1,B.class);
 String a1 ="{\"pageSize\":0,\"pageIndex\":0,\"largeCustomerName\":\"ç´«å\n" +
         "éå\"}";
         String ss = new String(a1.getBytes("ISO8859-1"), "UTF-8");
