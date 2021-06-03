@@ -14,4 +14,7 @@ public class Person {
         this.age= age;
         this.sex = sex;
     }
+    public void printInfo(String prm){
+        System.out.println(prm);
+    }
 }

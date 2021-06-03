@@ -1,0 +1,151 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>手风琴</title>
+         <style>
+             * {
+                     margin: 0;
+                     padding: 0;
+                 }
+
+             .listbox {
+                                width: 500px;
+                                height: 400px;
+                                margin: 50px auto;
+                            }
+
+            .list {
+                                position: relative;
+                            }
+
+            .list a {
+                                display: block;
+                                height: 35px;
+                                background: linear-gradient(#eeeeee, #8f8f8f);
+                                text-decoration: none;
+                                padding-left: 12px;
+                                border-radius: 5px;
+                                text-decoration: none;
+                                color: #424242;
+                                line-height: 35px;
+                            }
+
+             .list p {
+                        /* 超出区域出现滚动条 */
+                                overflow: auto;
+                        height: 0px;
+                        padding-left: 10px;
+                        margin: 5px auto;
+                        transition: 0.7s linear;
+                    }
+
+             .list span {
+                        width: 0;
+                        height: 0;
+                        /* border-left: 5px solid  transparent 代表透明 */
+                                border-left: 5px solid rgba(0, 0, 0, 0);
+                        border-right: 5px solid rgba(0, 0, 0, 0);
+                        border-top: 5px solid white;
+                        border-bottom: 5px solid rgba(0, 0, 0, 0);
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                    }
+
+            .list:target p {
+                            height: 100px;
+                        }
+
+            .list a:hover,
+            .list:target a {
+                            background: linear-gradient(#6bb2ff, #2288dd);
+                            color: white;
+                        }
+
+            .list:target span {
+                        /* transform: rotate(-90deg); */
+                                border-top: 5px solid transparent;
+                        border-left: 5px solid #fff;
+                        right: 10px;
+                    }
+
+         </style>
+</head>
+<body>
+<h1>手风琴样式</h1>
+<!-- Start of the accordion -->
+<div class="listbox">
+<!--    <div class="list" id="listOne">-->
+<!--        <a href="#listOne">标题1</a>-->
+<!--        &lt;!&ndash; 边框三角形 &ndash;&gt;-->
+<!--        <span></span>-->
+<!--        <p>111111111111111111111111111111111111111111111-->
+<!--        </p>-->
+<!--    </div>-->
+<!--    <div class="list" id="listTwo">-->
+<!--        <a href="#listTwo">标题2</a>-->
+<!--        &lt;!&ndash; 边框三角形 &ndash;&gt;-->
+<!--        <span></span>-->
+<!--        <p>2222222222222222222222222222-->
+<!--        </p>-->
+<!--    </div>-->
+<!--    <div class="list" id="listThree">-->
+<!--        <a href="#listThree">标题3</a>-->
+<!--        &lt;!&ndash; 边框三角形 &ndash;&gt;-->
+<!--        <span></span>-->
+<!--        <p>333333333333333333333333333333-->
+<!--        </p>-->
+<!--    </div>-->
+</div>
+<script>
+    $.ajax({
+        //请求方式
+        type : "POST",
+        //请求的媒体类型
+        contentType: "application/json;charset=UTF-8",
+        //请求地址
+        url : "http://127.0.0.1:8080/sfq/getData",
+        //数据，json字符串
+        data : {},
+        //请求成功
+        success : function(result) {
+            console.log(result.res.data);
+            let data = result.res.data
+            let cm = '';
+            for(var i = 0; i < data.length; i++){
+                cm += '<div class="list" id="listid">' +
+                    '<a href="#listOne">'+data[i].title+'</a>'+'<span style="                        width: 0;\n' +
+                    '                        height: 0;\n' +
+                    '                        /* border-left: 5px solid  transparent 代表透明 */\n' +
+                    '                                border-left: 5px solid rgba(0, 0, 0, 0);\n' +
+                    '                        border-right: 5px solid rgba(0, 0, 0, 0);\n' +
+                    '                        border-top: 5px solid white;\n' +
+                    '                        border-bottom: 5px solid rgba(0, 0, 0, 0);\n' +
+                    '                        position: absolute;\n' +
+                    '                        top: 15px;\n' +
+                    '                        right: 15px;                                border-top: 5px solid transparent;\n' +
+                    '                        border-left: 5px solid #fff;\n' +
+                    '                        right: 10px;"></span>'
+                +'<p style="height: 100px;                                overflow: auto;\n' +
+                    '                        ;\n' +
+                    '                        padding-left: 10px;\n' +
+                    '                        margin: 5px auto;\n' +
+                    '                        transition: 0.7s linear;">'+data[i].content + '</p>'+'</div>';
+                console.log(cm);
+
+            }
+            $('.listbox').html(cm);
+        },
+        //请求失败，包含具体的错误信息
+        error : function(e){
+            console.log(e.status);
+            console.log(e.responseText);
+        }
+    });
+</script>
+</body>
+</html>
