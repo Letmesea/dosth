@@ -54,11 +54,11 @@ public class FreeMarkerUtils {
         map.put("salesData",jsonObject1.getJSONObject("map").get("salesData"));
         map.put("salesDataChannel",jsonObject1.getJSONObject("map").get("salesDataChannel"));
         map.put("salesDataProduct",jsonObject1.getJSONObject("map").get("salesDataProduct"));
-
+        map.put("salesDataPccode",jsonObject1.getJSONObject("map").get("salesDataPccode"));
         String res = getTemplate("salesDailyt.ftl",map);
         String path = FreeMarkerUtils.class.getResource("/").getPath()+"/13.html";
         FileUtil.writeFile(path,res);
-        System.out.println(res);
+//        System.out.println(res);
     }
 
 

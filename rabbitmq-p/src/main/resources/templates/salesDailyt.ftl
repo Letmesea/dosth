@@ -259,41 +259,41 @@ height: 24px; line-height: 24px;" bgcolor="#1a2c4c">
         </th>
     </tr>
     <#list salesDataChannel as sdd11>
-    <tr>
-        <td style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.channel}</span>
-        </td>
-        <td style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.orderSum}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.pmj}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.tax}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.salesAmt}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.pointAmt}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.dynamicPointAmt}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.cashTktSum}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.pointTktSum}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.dynamicPointTktSum}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.segSum}</span>
-        </td>
-    </tr>
+        <tr>
+            <td style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.channel}</span>
+            </td>
+            <td style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.orderSum}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.pmj}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.tax}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.salesAmt}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.pointAmt}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.dynamicPointAmt}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.cashTktSum}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.pointTktSum}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.dynamicPointTktSum}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.segSum}</span>
+            </td>
+        </tr>
     </#list>
     </tbody>
 </table>
@@ -308,7 +308,7 @@ font-size: 13px; vertical-align: middle; text-align: center; border: 1px solid
     <tbody>
     <tr style="color: #ffffff;
 height: 24px; line-height: 24px;" bgcolor="#1a2c4c">
-        <th id="t1_2_r01" style="font-weight: normal; text-align: center;  padding: 6px" scope="col" width="8%">按照产品类型统计
+        <th colspan="2" id="t1_2_r01" style="font-weight: normal; text-align: center;  padding: 6px" scope="col" width="8%">产品类型
         </th>
         <th id="t1_2_r02" style="font-weight: normal; text-align: center;  padding: 6px" scope="col" width="8%">订单数
         </th>
@@ -331,45 +331,140 @@ height: 24px; line-height: 24px;" bgcolor="#1a2c4c">
         <th id="t1_4_r10" style="font-weight: normal; text-align: center;" scope="col" width="8%">航段数
         </th>
     </tr>
-    <#list salesDataProduct as sdd11>
-    <tr>
-        <td style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.productType}</span>
-        </td>
-        <td style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.orderSum}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.pmj}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.tax}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.salesAmt}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.pointAmt}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.dynamicPointAmt}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.cashTktSum}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.pointTktSum}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.dynamicPointTktSum}</span>
-        </td>
-        <td  style="text-align: center; ">
-            <span id="t1_2_r09">${sdd11.segSum}</span>
-        </td>
-    </tr>
+    <#list salesDataProduct as sdpd>
+    <#list sdpd.data as sdp>
+        <tr>
+                <#if sdpd_index ==0 >
+                    <#if sdp_index ==0>
+
+                            <td  rowspan="${sdpd.rowSpan?number}"    style="text-align: center; ">
+                                <span id="t1_2_r09">${sdpd.type}</span>
+                            </td>
+                            <td      style="text-align: center; ">
+                                <span id="t1_2_r09">${sdp.type}</span>
+                            </td>
+
+                    <#else >
+                        <td      style="text-align: center; ">
+                            <span id="t1_2_r09">${sdp.type}</span>
+                        </td>
+                    </#if>
+                <#else>
+                    <td colspan="2"    style="text-align: center; ">
+                        <span id="t1_2_r09">${sdp.type}</span>
+                    </td>
+                </#if>
+                <td style="text-align: center; ">
+                    <span id="t1_2_r09">${sdp.orderSum}</span>
+                </td>
+                <td  style="text-align: center; ">
+                    <span id="t1_2_r09">${sdp.pmj}</span>
+                </td>
+                <td  style="text-align: center; ">
+                    <span id="t1_2_r09">${sdp.tax}</span>
+                </td>
+                <td  style="text-align: center; ">
+                    <span id="t1_2_r09">${sdp.salesAmt}</span>
+                </td>
+                <td  style="text-align: center; ">
+                    <span id="t1_2_r09">${sdp.pointAmt}</span>
+                </td>
+                <td  style="text-align: center; ">
+                    <span id="t1_2_r09">${sdp.dynamicPointAmt}</span>
+                </td>
+                <td  style="text-align: center; ">
+                    <span id="t1_2_r09">${sdp.cashTktSum}</span>
+                </td>
+                <td  style="text-align: center; ">
+                    <span id="t1_2_r09">${sdp.pointTktSum}</span>
+                </td>
+                <td  style="text-align: center; ">
+                    <span id="t1_2_r09">${sdp.dynamicPointTktSum}</span>
+                </td>
+                <td  style="text-align: center; ">
+                    <span id="t1_2_r09">${sdp.segSum}</span>
+                </td>
+
+
+        </tr>
+    </#list>
     </#list>
     </tbody>
 </table>
+
+<div class="div1">
+    <!--明细-->
+    <div class="div1_1">支付渠道销售明细</div>
+</div>
+<table id="t1_2" class="orderPrintTable" style="margin: 0; border-collapse: collapse;
+font-size: 13px; vertical-align: middle; text-align: center; border: 1px solid
+#c2c2c2; padding: 6px" scope="col" width="100%" cellpadding="6" border="1">
+    <tbody>
+    <tr style="color: #ffffff;
+height: 24px; line-height: 24px;" bgcolor="#1a2c4c">
+        <th id="t1_2_r01" style="font-weight: normal; text-align: center;  padding: 6px" scope="col" width="8%">支付渠道
+        </th>
+        <th id="t1_2_r02" style="font-weight: normal; text-align: center;  padding: 6px" scope="col" width="8%">订单数
+        </th>
+        <th id="t1_2_r03" style="font-weight: normal; text-align: center;  padding: 6px" scope="col" width="8%">票面额
+        </th>
+        <th id="t1_4_r04" style="font-weight: normal; text-align: center;" scope="col" width="8%">税费
+        </th>
+        <th id="t1_4_r05" style="font-weight: normal; text-align: center;" scope="col" width="8%">销售金额
+        </th>
+        <th id="t1_4_r06" style="font-weight: normal; text-align: center;" scope="col" width="8%">积分支付金额
+        </th>
+        <th id="t1_4_r07" style="font-weight: normal; text-align: center;" scope="col" width="8%">动态积分支付金额
+        </th>
+        <th id="t1_4_r08" style="font-weight: normal; text-align: center;" scope="col" width="8%">现金支付客票量
+        </th>
+        <th id="t1_4_r09" style="font-weight: normal; text-align: center;" scope="col" width="8%">积分支付客票量
+        </th>
+        <th id="t1_4_r10" style="font-weight: normal; text-align: center;" scope="col" width="8%">动态积分支付客票量
+        </th>
+        <th id="t1_4_r10" style="font-weight: normal; text-align: center;" scope="col" width="8%">航段数
+        </th>
+    </tr>
+    <#list salesDataPccode as sdd11>
+        <tr>
+            <td style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.pccode}</span>
+            </td>
+            <td style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.orderSum}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.pmj}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.tax}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.salesAmt}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.pointAmt}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.dynamicPointAmt}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.cashTktSum}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.pointTktSum}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.dynamicPointTktSum}</span>
+            </td>
+            <td  style="text-align: center; ">
+                <span id="t1_2_r09">${sdd11.segSum}</span>
+            </td>
+        </tr>
+    </#list>
+    </tbody>
+</table>
+
 <p style="margin-bottom: 2%"></p>
 </body>
 </html>
